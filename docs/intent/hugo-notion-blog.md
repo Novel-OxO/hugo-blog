@@ -80,7 +80,14 @@ public/  →  GitHub Pages 배포
 
 - [x] Notion DB 설계·생성 + 예시 글 1개
 - [x] 의도 문서화 / private 레포 생성
-- [ ] Hugo 스캐폴드 (테마 없음)
-- [ ] Tailwind v4 연결 (css.TailwindCSS)
-- [ ] Go 동기화 CLI (notion-sync)
-- [ ] GitHub Actions 워크플로 (workflow_dispatch → sync → build → deploy)
+- [x] Hugo 스캐폴드 (테마 없음) — 로컬 빌드 검증 완료(Hugo v0.163.3)
+- [x] Tailwind v4 연결 (css.TailwindCSS) — `@source hugo_stats.json` 클래스 스캔 확인
+- [x] Go 동기화 CLI (notion-sync) — stdlib만 사용, `go vet`/`go build` 통과
+- [x] GitHub Actions 워크플로 (workflow_dispatch → sync → commit → build → deploy)
+
+### 남은 작업 (사용자 액션 후 첫 배포)
+
+1. Notion Integration 토큰 발급 + Blog Posts DB Connect
+2. GitHub Secret `NOTION_TOKEN` 등록
+3. Repo Settings → Pages → Source = GitHub Actions
+4. Actions → Deploy → Run workflow 로 첫 배포

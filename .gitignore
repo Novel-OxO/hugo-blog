@@ -7,7 +7,8 @@ hugo_stats.json
 # Node
 /node_modules/
 
-# Go
+# Go (build output)
+/notion-sync
 /tools/notion-sync/notion-sync
 *.test
 

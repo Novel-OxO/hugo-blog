@@ -1,0 +1,9 @@
+{
+  "name": "hugo-blog",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hugo + Notion 개인 기술 블로그 (Tailwind v4)",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0"
+  }
+}

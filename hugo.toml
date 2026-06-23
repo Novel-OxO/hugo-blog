@@ -1,0 +1,43 @@
+baseURL = "https://novel-oxo.github.io/hugo-blog/"
+defaultContentLanguage = "ko"
+title = "hugo-blog"
+
+[languages.ko]
+  locale = "ko-KR"
+  label = "한국어"
+enableRobotsTXT = true
+
+[params]
+  description = "개인 기술 블로그"
+
+[taxonomies]
+  tag = "tags"
+
+[markup]
+  [markup.highlight]
+    style = "github"
+    lineNos = false
+    tabWidth = 2
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+# --- Tailwind v4 (css.TailwindCSS) 빌드 통계 / 캐시버스터 ---
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+  [[build.cachebusters]]
+    source = 'assets/css/.*\.css'
+    target = 'css'
+  [[build.cachebusters]]
+    source = 'layouts/.*\.html'
+    target = 'css'
