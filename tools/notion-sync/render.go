@@ -70,10 +70,19 @@ func buildFrontMatter(p Page, title, slug, bundleDir string) string {
 		b.WriteString("tags: [" + strings.Join(names, ", ") + "]\n")
 	}
 
-	// 커버 이미지도 1시간 만료 대상이므로 page bundle에 받아둔다.
-	if u := p.Cover.URL(); u != "" {
-		if name, err := downloadAsset(u, bundleDir, "cover"); err == nil {
+	// 커버 이미지(1시간 만료 대상): DB "Cover" 파일 속성 우선, 없으면 페이지 배너.
+	coverURL := ""
+	if files := p.prop("Cover").Files; len(files) > 0 {
+		coverURL = files[0].URL()
+	}
+	if coverURL == "" {
+		coverURL = p.Cover.URL()
+	}
+	if coverURL != "" {
+		if name, err := downloadAsset(coverURL, bundleDir, "cover"); err == nil {
 			b.WriteString("cover: " + yamlString(name) + "\n")
+		} else {
+			fmt.Fprintf(os.Stderr, "  ⚠ 커버 다운로드 실패: %v\n", err)
 		}
 	}
 
