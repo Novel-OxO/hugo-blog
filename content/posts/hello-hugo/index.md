@@ -4,6 +4,7 @@ date: 2026-06-23
 slug: "hello-hugo"
 description: "Notion에서 글을 쓰고 Go 동기화 CLI로 Hugo에 배포하는 첫 테스트 글입니다."
 tags: ["Hugo", "Go"]
+cover: "cover.jpg"
 draft: false
 ---
 
