@@ -1,5 +1,6 @@
 baseURL = "https://jungmini0601.github.io/hugo-blog/"
 defaultContentLanguage = "ko"
+timeZone = "Asia/Seoul"
 title = "hugo-blog"
 
 [languages.ko]
